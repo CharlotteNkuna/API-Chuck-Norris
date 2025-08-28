@@ -1,48 +1,91 @@
 body {
-	color: white;
-	font-family: "Berkshire Swash", cursive;
-}
-
-button {
-	background-color: pink;
-	border-radius: 25px;
-}
-
-button:hover {
-	background-color: white;
-	cursor: pointer;
-}
-
-img {
-	max-width: 150px;
-	border: 3px dotted darkred;
-}
-
-select {
-	margin-bottom: 5px;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 #container {
-	width: 300px;
-	text-align: center;
-	margin: 0 auto;
-	padding: 25px;
-	background: url("https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEwL3Jhd3BpeGVsb2ZmaWNlMjFfZ2lmdF93cmFwcGluZ19yaWJib25fZm9yX3ByZXNlbnRfc3Rhcl9taW5pbWFsX183ZWY3NThjNy03Yjc1LTQzMjEtOWJiNC1iYTlhNzcxNGMxNmZfMS5qcGc.jpg");
-	background-repeat: no-repeat;
-	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    width: 500px;
+    min-height: 600px;
+    text-align: center;
+    padding: 25px;
+    border-radius: 12px;
+    background: rgb(234, 231, 231) url("https://images.pexels.com/photos/6898861/pexels-photo-6898861.jpeg") no-repeat center/cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
-#title,
-label {
-	text-shadow: -1px -1px 3px red, 1px 2px 1px black;
-	padding: 5px;
-	width: 100%;
+#container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    z-index: 0;
 }
 
+#container > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Title and labels */
+#title, label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    margin: 10px 0;
+}
+
+/* Dropdown */
+select {
+    margin: 10px 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Button */
+button {
+    background-color: #ff7b7b;
+    border-radius: 8px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    color: white;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #e85b5b;
+    cursor: pointer;
+}
+
+/* Image styling */
+img {
+    max-width: 250px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+/* Joke text */
 #display-joke {
-	background: rgba(0, 0, 0, 0.8);
-	background-color: whitesmoke;
-	color: black;
-	text-shadow: 1px 1px 1px rgba(255, 0, 0, 0.9);
-	padding: 25px;
+    background: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 1px solid #ddd;
 }
