@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+  </head>
+  <h2>Login Page</h2>
+
+  <body>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required /> <br />
+      <br />
+      <input type="password" id="password" placeholder="password" required />
+      <br />
+      <br />
+      <button type="submit">Login</button>
+      <!--submit is a keyword for sending data-->
+    </form>
+
+    <p>
+      Don't have an accout?
+      <a href="register.html">Register </a>
+    </p>
+  </body>
+
+  <script>
+    //Lets make sure that login form does anything automatic
+    // these functions will work only when someone clicks the submit bjutton
+    document
+      .getElementById("loginForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        //get username from typed text in the input box to be stred below in value
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        //set users
+        //protect usernames so new users don't use the same to register
+        //user object to get users object or everything
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        //create a condition for checking username and password from user array object
+        //creating a login function :Lamda function
+        const validUser = users.find(
+          (u) => u.username === username && u.password === password
+        );
+        
+        //if statement to login and set user logged In, in local storage
+        //need item to store or let someone loged in
+        if (validUser){
+            localStorage.setItem("loggedInUser", JSON.stringify(validUser));
+            alert("Logged in successful, " + validUser);
+            window.location.href = "dashboard.html"
+        } else{
+            alert("Wrong user name or password, try again !")
+        }
+      });
+  </script>
+</html>

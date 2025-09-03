@@ -36,11 +36,10 @@ body {
     z-index: 1;
 }
 
-/* Title and labels */
 #title, label {
     font-size: 20px;
     font-weight: bold;
-    color: #222;
+    color: #333;
     margin: 10px 0;
 }
 
@@ -54,7 +53,6 @@ select {
     cursor: pointer;
 }
 
-/* Button */
 button {
     background-color: #ff7b7b;
     border-radius: 8px;

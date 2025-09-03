@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <h2>Register Page</h2>
+
+    <form id="registerForm">
+        <input type="text" id="username" placeholder="Username" required> <br> <br>
+        <input type="password" id="password" placeholder="password" required> <br> <br>
+        <button type="submit">Login</button>  <!--submit is a keyword for sending data only works on the form taf-->
+    </form> 
+
+    <p>Already have an accout? 
+        <a href="login.html">Login</a>
+    </p>
+    
+</body>
+<script>
+    //Lets make sure that register form does anything automatic
+    // these functions will work only when someone clicks the submit bjutton
+    document.getElementById("registerForm").addEventListener("submit", function(e) { // get elements by Id
+        e.preventDefault(); //prevents function from loading autometic
+        //get username from typed text in the input box to be stred below in value
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        //set users
+        //protect usernames so new users don't use the same to register
+        //user object to get users object or everything
+        let users = JSON.parse(localStorage.getItem ("users")) || [] //virtual array that a user will type info//recieves data in jason format
+    //array is empty because we dont know who will register or how many. it gets info as soon as ppl reg
+        //get users means that we get a list of users.
+
+        //check if username already exists
+        if(users.find(u => u.username ===username)) { //.find is an array method. //this is an anonympus function/lamda function to shorten the code
+            alert("Username already Exist!")  //=== is strict comparison. compares the data amd datatype wheter if its a number or string
+            return
+        }
+        //save username to local storage and redirect to login
+        users.push({username, password}); // pushing using array type
+        localStorage.setItem("users", JSON.stringify(users)); //saving to local storage //makes the data you are sending a string:Stringfy
+        //getItem: fetch username and password anywhere. SetItem: setting items anywhere
+        alert("Regstration Successful, you can now login") // you will get an alert and redirected to login page
+        window.location.href = "login.html"; // if you remove this the page will load
+    });
+</script>
+</html>
