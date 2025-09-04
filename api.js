@@ -57,7 +57,7 @@ async function fetchJoke() {
   }
 }
 
-//dashboard
+//dashboard - index.html
 
 const user = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -77,3 +77,4 @@ document.getElementById("logout").addEventListener("click", function () {
   window.location.href = "login.html";
 }); // event listener works when you "click" button and it works . its for the input
 //when you click it, it deletes the info and you will logout successfully.
+

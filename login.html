@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Login Page</title>
   </head>
+  <div id="container">
   <h2>Login Page</h2>
 
   <body>
     <form id="loginForm">
       <input type="text" id="username" placeholder="Username" required /> <br />
       <br />
-      <input type="password" id="password" placeholder="password" required />
+      <input type="password" id="password" placeholder="Password" required />
       <br />
       <br />
       <button type="submit">Login</button>
@@ -22,6 +24,7 @@
       Don't have an accout?
       <a href="register.html">Register </a>
     </p>
+  </div>
   </body>
 
   <script>
@@ -51,7 +54,7 @@
         if (validUser){
             localStorage.setItem("loggedInUser", JSON.stringify(validUser));
             alert("Logged in successful, " + validUser);
-            window.location.href = "dashboard.html"
+            window.location.href = "index.html"
         } else{
             alert("Wrong user name or password, try again !")
         }
