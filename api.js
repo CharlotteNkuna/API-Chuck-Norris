@@ -8,12 +8,13 @@ category.addEventListener("change", () => {
   chosenCategory = category.value;
 });
 
-async function generateCategoryOptions() {
-  let outPut = ``;
+async function generateCategoryOptions() { //This defines a function named generateCategoryOptions.
+  //It is marked as async because it will wait for data from an API request using await.
+  let outPut = ``;  //''means that we are still going to put html elements
 
   try {
     const results = await fetch(`https://api.chucknorris.io/jokes/categories`);
-
+//fetch sends a request to web API
     if (!results.ok) {
       throw new Error("Request failed.");
     }
